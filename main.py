@@ -15,8 +15,17 @@ http_response = requests.get(api_link) #returns a response object
 
 # we notice that an object is being returned together with its status which is 200 for being ok , this means that the request was successful    
 # will create a code logic which will display the result based on the status code
-if http_response.status_code == 200:
-    cat_fact = http_response.json().get("fact")
-    print(cat_fact)
-else:
-    print("You can't check the facts about cats for now. Try again later.")
+
+# loop through the requests for users to get as many facts as they wish for
+
+ask = input("Do you wish to learn facts about cats? (y/n) ")
+
+while ask != 'n':
+    http_response = requests.get(api_link)
+    if http_response.status_code == 200:
+        cat_fact = http_response.json().get("fact")
+        print(cat_fact)
+    else:
+        print("You can't check the facts about cats for now. Try again later.")
+        break
+    ask = input("Do you still want to know more facts about cats? (y/n)  ")
