@@ -49,6 +49,7 @@ while True:
             print(f"\nHere are your {len(facts_store)} cat facts:")
             for fact in facts_store:
                 print(f"- {fact}")
+            print("You can request more facts or exit. ")
         else:
             #warning when list is empty
             print("No facts retrieved. Please try again later.")
