@@ -41,7 +41,11 @@ while True:
                 print("You can't check the facts about cats for now. Try again later.")
                 print("Error: Code error " + str(http_response.status_code))
                 ask = input("Would you like to try again? ")
-        print(facts_store)
+        if facts_store:
+            for fact in facts_store:
+                print(f"- {fact}")
+        # clean the list of facts
+        facts_store = []
     else:
         print("Please enter 'y' for yes or 'n' for no.")
     ask = input("\nDo you still want to know more facts about cats? (y/n)  ")
