@@ -49,9 +49,10 @@ while True:
             print(f"\nHere are your {len(facts_store)} cat facts:")
             for fact in facts_store:
                 print(f"- {fact}")
-        # clean the list of facts
         else:
+            #warning when list is empty
             print("No facts retrieved. Please try again later.")
+        # clean the list of facts
         facts_store.clear()
     else:
         print("Please enter 'y' for yes or 'n' for no.")
