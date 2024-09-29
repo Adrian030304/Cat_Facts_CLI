@@ -19,4 +19,4 @@ if http_response.status_code == 200:
     cat_fact = http_response.json().get("fact")
     print(cat_fact)
 else:
-    print(http_response.status_code)
+    print("You can't check the facts about cats for now. Try again later.")
