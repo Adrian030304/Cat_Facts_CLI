@@ -46,6 +46,7 @@ while True:
                 print("Error: Code error " + str(http_response.status_code))
                 ask = input("Would you like to try again? ")
         if facts_store:
+            print(f"{len(facts_store)} facts have been retrieved.")
             for fact in facts_store:
                 print(f"- {fact}")
         # clean the list of facts
