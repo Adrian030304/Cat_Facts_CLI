@@ -13,3 +13,4 @@ api_link = "https://catfact.ninja/fact"
 
 http_response = requests.get(api_link) #returns a response object
 print(http_response)
+# we notice that an object is being returned together with its status which is 200 for being ok , this means that the request was successful    
