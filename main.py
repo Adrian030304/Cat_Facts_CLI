@@ -1,8 +1,9 @@
 #I will be making http requests and towards api 
 import requests
+import tkinter as tk
 
 #now I will create the link I will be using for the api url
-api_link = "https://catfact.ninja/fac"
+api_link = "https://catfact.ninja/fact"
 
 # this is an important endpoint for our get request , is is the above link of the api
 # output --> a json response from the api
@@ -38,6 +39,7 @@ while True:
         except ValueError:
             print("Please enter a valid number.")
             continue
+        
         for _ in range(facts_num):
             http_response = requests.get(api_link)
             if http_response.status_code == 200:
@@ -48,10 +50,11 @@ while True:
                 print("You can't check the facts about cats for now. Try again later.")
                 print("Error: Code error " + str(http_response.status_code))
                 ask = input("Would you like to try again (y/n)? ")
-                if ask.lower == 'y':
-                    continue
+                if ask.lower() == 'y':
+                    break
                 else:
                     break
+                
         if facts_store:
             print(f"\nHere are your {len(facts_store)} cat facts:")
             for fact in facts_store:
