@@ -20,14 +20,19 @@ http_response = requests.get(api_link) #returns a response object
 
 ask = input("Do you wish to learn facts about cats? (y/n) ")
 
-while ask.lower() != 'n':
-    http_response = requests.get(api_link)
-    if http_response.status_code == 200:
-        cat_fact = http_response.json().get("fact")
-        print("\nHere's a fun cat fact for you:")
-        print(cat_fact)
+while True:
+    if ask.lower() == 'n':
+        print("Thank you, have a nice day! ")
+        break
+    elif ask.lower() == 'y':
+        http_response = requests.get(api_link)
+        if http_response.status_code == 200:
+            cat_fact = http_response.json().get("fact")
+            print(f"\nHere's a fun cat fact for you: {cat_fact}")
+        else:
+            print("You can't check the facts about cats for now. Try again later.")
+            print("Error: Code error " + str(http_response.status_code))
+            ask = input("Would you like to try again? ")
     else:
-        print("You can't check the facts about cats for now. Try again later.")
-        print("Error: Code error " + str(http_response.status_code))
-        ask = input("Would you like to try again? ")
-    ask = input("Do you still want to know more facts about cats? (y/n)  ")
+        print("Please enter 'y' for yes or 'n' for no.")
+    ask = input("\nDo you still want to know more facts about cats? (y/n)  ")
