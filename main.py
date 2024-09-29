@@ -29,14 +29,17 @@ while True:
         print("Thank you, have a nice day! ")
         break
     elif ask.lower() == 'y':
-        http_response = requests.get(api_link)
-        if http_response.status_code == 200:
-            cat_fact = http_response.json().get("fact")
-            print(f"\nHere's a fun cat fact for you: {cat_fact}")
-        else:
-            print("You can't check the facts about cats for now. Try again later.")
-            print("Error: Code error " + str(http_response.status_code))
-            ask = input("Would you like to try again? ")
+        # specify how many facts can be displayed in one request
+        facts_num = int(input("How many facts do you wish to know? "))
+        for i in range(facts_num):
+            http_response = requests.get(api_link)
+            if http_response.status_code == 200:
+                cat_fact = http_response.json().get("fact")
+                print(f"\nHere's a fun cat fact for you: {cat_fact}")
+            else:
+                print("You can't check the facts about cats for now. Try again later.")
+                print("Error: Code error " + str(http_response.status_code))
+                ask = input("Would you like to try again? ")
     else:
         print("Please enter 'y' for yes or 'n' for no.")
     ask = input("\nDo you still want to know more facts about cats? (y/n)  ")
