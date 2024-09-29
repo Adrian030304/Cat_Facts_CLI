@@ -12,5 +12,10 @@ api_link = "https://catfact.ninja/fact"
 # the api endpoint link
 
 http_response = requests.get(api_link) #returns a response object
-print(http_response)
+
 # we notice that an object is being returned together with its status which is 200 for being ok , this means that the request was successful    
+# will create a code logic which will display the result based on the status code
+if http_response.status_code == 200:
+    print(http_response.json())
+else:
+    print(http_response.status_code)
