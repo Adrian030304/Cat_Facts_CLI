@@ -30,7 +30,11 @@ while True:
         break
     elif ask.lower() == 'y':
         # specify how many facts can be displayed in one request
-        facts_num = int(input("How many facts do you wish to know? "))
+        try:
+            facts_num = int(input("How many facts do you wish to know? "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
         for _ in range(facts_num):
             http_response = requests.get(api_link)
             if http_response.status_code == 200:
