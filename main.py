@@ -19,6 +19,10 @@ http_response = requests.get(api_link) #returns a response object
 # loop through the requests for users to get as many facts as they wish for
 
 ask = input("Do you wish to learn facts about cats? (y/n) ")
+# add explanation about facts
+print("Cat facts are little trivia pieces of information about cats.")
+
+
 
 while True:
     if ask.lower() == 'n':
