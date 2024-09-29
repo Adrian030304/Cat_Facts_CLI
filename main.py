@@ -45,7 +45,7 @@ while True:
             for fact in facts_store:
                 print(f"- {fact}")
         # clean the list of facts
-        facts_store = []
+        facts_store.clear()
     else:
         print("Please enter 'y' for yes or 'n' for no.")
     ask = input("\nDo you still want to know more facts about cats? (y/n)  ")
