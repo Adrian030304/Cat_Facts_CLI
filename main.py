@@ -2,7 +2,7 @@
 import requests
 
 #now I will create the link I will be using for the api url
-api_link = "https://catfact.ninja/fact"
+api_link = "https://catfact.ninja/fac"
 
 # this is an important endpoint for our get request , is is the above link of the api
 # output --> a json response from the api
@@ -44,7 +44,11 @@ while True:
             else:
                 print("You can't check the facts about cats for now. Try again later.")
                 print("Error: Code error " + str(http_response.status_code))
-                ask = input("Would you like to try again? ")
+                ask = input("Would you like to try again (y/n)? ")
+                if ask.lower == 'y':
+                    continue
+                else:
+                    break
         if facts_store:
             print(f"\nHere are your {len(facts_store)} cat facts:")
             for fact in facts_store:
