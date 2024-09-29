@@ -32,6 +32,9 @@ while True:
         # specify how many facts can be displayed in one request
         try:
             facts_num = int(input("How many facts do you wish to know? "))
+            if facts_num > 10:
+                print("You are not allowed to request too many facts at once")
+                continue
         except ValueError:
             print("Please enter a valid number.")
             continue
