@@ -18,7 +18,7 @@ http_response = requests.get(api_link) #returns a response object
 
 # loop through the requests for users to get as many facts as they wish for
 
-ask = input("Do you wish to learn facts about cats? (y/n) ")
+ask = input("Do you wish to learn facts about cats (y/n)? ")
 # add explanation about facts
 print("Cat facts are little trivia pieces of information about cats.")
 
@@ -31,7 +31,7 @@ while True:
     elif ask.lower() == 'y':
         # specify how many facts can be displayed in one request
         try:
-            facts_num = int(input("How many facts do you wish to know? "))
+            facts_num = int(input("How many facts do you wish to know (Max: 10)? "))
             if facts_num > 10:
                 print("You are not allowed to request too many facts at once")
                 continue
@@ -64,4 +64,4 @@ while True:
         facts_store.clear()
     else:
         print("Please enter 'y' for yes or 'n' for no.")
-    ask = input("\nDo you still want to know more facts about cats? (y/n)  ")
+    ask = input("\nDo you still want to know more facts about cats (y/n)?   ")
