@@ -42,9 +42,10 @@ def user_input():
 
 def main():
     print("Welcome to Cats Facts.\nHere you will get to know random facts about cats.\n")
-    ask = user_input()
+    
     # main loop
     while True:
+        ask = user_input()
         if ask == 'n':
             return "Thank you, have a nice day! "
         elif ask == 'y':
