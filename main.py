@@ -42,6 +42,16 @@ def user_input():
 
 def main():
     print("Welcome to Cats Facts.\nHere you will get to know random facts about cats.\n")
+    
+    # main loop
+    while True:
+        ask = user_input()
+    
+        if ask == 'n':
+            print("Thank you, have a nice day! ")
+            break
+    
+    
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
 # print("Cat facts are little trivia pieces of information about cats.")
