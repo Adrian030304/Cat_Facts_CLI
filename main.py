@@ -1,9 +1,9 @@
 #I will be making http requests and towards api 
 import requests
-import tkinter as tk
+
 
 #now I will create the link I will be using for the api url
-api_link = "https://catfact.ninja/fact"
+api_link = "https://catfact.ninja/fac"
 
 # this is an important endpoint for our get request , is is the above link of the api
 # output --> a json response from the api
@@ -19,52 +19,60 @@ http_response = requests.get(api_link) #returns a response object
 
 # loop through the requests for users to get as many facts as they wish for
 
-ask = input("Do you wish to learn facts about cats (y/n)? ")
-# add explanation about facts
-print("Cat facts are little trivia pieces of information about cats.")
-
-facts_store = []
-
-while True:
-    if ask.lower() == 'n':
-        print("Thank you, have a nice day! ")
-        break
-    elif ask.lower() == 'y':
-        # specify how many facts can be displayed in one request
-        try:
-            facts_num = int(input("How many facts do you wish to know (Max: 10)? "))
-            if facts_num > 10:
-                print("You are not allowed to request too many facts at once")
-                continue
-        except ValueError:
-            print("Please enter a valid number.")
-            continue
-        
-        for _ in range(facts_num):
-            http_response = requests.get(api_link)
-            if http_response.status_code == 200:
-                cat_fact = http_response.json().get("fact")
-                # store the cat facts
-                facts_store.append(cat_fact)
-            else:
-                print("You can't check the facts about cats for now. Try again later.")
-                print("Error: Code error " + str(http_response.status_code))
-                ask = input("Would you like to try again (y/n)? ")
-                if ask.lower() == 'y':
-                    break
-                else:
-                    break
-                
-        if facts_store:
-            print(f"\nHere are your {len(facts_store)} cat facts:")
-            for fact in facts_store:
-                print(f"- {fact}")
-            print("You can request more facts or exit. ")
-        else:
-            #warning when list is empty
-            print("No facts retrieved. Please try again later.")
-        # clean the list of facts
-        facts_store.clear()
+# create a function to fetch a cat fact from the api
+def fetch_cat_fact():
+    response = requests.get(api_link)
+    if response.status_code == 200:
+        return response.json().get('fact')
     else:
-        print("Please enter 'y' for yes or 'n' for no.")
-    ask = input("\nDo you still want to know more facts about cats (y/n)?   ")
+        return None
+
+# ask = input("Do you wish to learn facts about cats (y/n)? ")
+# # add explanation about facts
+# print("Cat facts are little trivia pieces of information about cats.")
+
+# facts_store = []
+
+# while True:
+#     if ask.lower() == 'n':
+#         print("Thank you, have a nice day! ")
+#         break
+#     elif ask.lower() == 'y':
+#         # specify how many facts can be displayed in one request
+#         try:
+#             facts_num = int(input("How many facts do you wish to know (Max: 10)? "))
+#             if facts_num > 10:
+#                 print("You are not allowed to request too many facts at once")
+#                 continue
+#         except ValueError:
+#             print("Please enter a valid number.")
+#             continue
+        
+#         for _ in range(facts_num):
+#             http_response = requests.get(api_link)
+#             if http_response.status_code == 200:
+#                 cat_fact = http_response.json().get("fact")
+#                 # store the cat facts
+#                 facts_store.append(cat_fact)
+#             else:
+#                 print("You can't check the facts about cats for now. Try again later.")
+#                 print("Error: Code error " + str(http_response.status_code))
+#                 ask = input("Would you like to try again (y/n)? ")
+#                 if ask.lower() == 'y':
+#                     break
+#                 else:
+#                     break
+                
+#         if facts_store:
+#             print(f"\nHere are your {len(facts_store)} cat facts:")
+#             for fact in facts_store:
+#                 print(f"- {fact}")
+#             print("You can request more facts or exit. ")
+#         else:
+#             #warning when list is empty
+#             print("No facts retrieved. Please try again later.")
+#         # clean the list of facts
+#         facts_store.clear()
+#     else:
+#         print("Please enter 'y' for yes or 'n' for no.")
+#     ask = input("\nDo you still want to know more facts about cats (y/n)?   ")
