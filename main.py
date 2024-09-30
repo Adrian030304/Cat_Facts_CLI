@@ -41,6 +41,7 @@ def user_input():
 # main program function
 
 def main():
+    print("Welcome to Cats Facts.\nHere you will get to know random facts about cats.\n")
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
 # print("Cat facts are little trivia pieces of information about cats.")
