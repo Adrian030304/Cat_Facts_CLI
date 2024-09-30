@@ -57,6 +57,13 @@ def main():
                 print("Please enter a valid number. ")
                 continue
             
+            # storage of facts for current request
+            facts_store = []
+            
+            for _ in range(facts_num):
+                fact = fetch_cat_fact() #fetch cat fact
+                if fact is not None:
+                    facts_store.append(fact)
 print(main())
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
