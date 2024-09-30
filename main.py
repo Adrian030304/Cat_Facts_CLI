@@ -3,7 +3,7 @@ import requests
 
 
 #now I will create the link I will be using for the api url
-api_link = "https://catfact.ninja/fac"
+api_link = "https://catfact.ninja/fact"
 
 # this is an important endpoint for our get request , is is the above link of the api
 # output --> a json response from the api
@@ -64,6 +64,13 @@ def main():
                 fact = fetch_cat_fact() #fetch cat fact
                 if fact is not None:
                     facts_store.append(fact)
+                    
+            if facts_store:  # Check if any facts were collected
+                print("\nHere are your cat facts:")
+                for fact in facts_store:
+                    print(f"- {fact}")
+            else:
+                print("No facts were retrieved. Please try again later.")
 print(main())
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
