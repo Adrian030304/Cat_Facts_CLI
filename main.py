@@ -38,6 +38,9 @@ def user_input():
             return 'y'
         else:
             print("You can only enter 'y' or 'n'.")
+# main program function
+
+def main():
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
 # print("Cat facts are little trivia pieces of information about cats.")
