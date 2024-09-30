@@ -48,10 +48,9 @@ def main():
         ask = user_input()
     
         if ask == 'n':
-            print("Thank you, have a nice day! ")
-            break
-    
-    
+            return "Thank you, have a nice day! "
+        
+print(main()) 
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
 # print("Cat facts are little trivia pieces of information about cats.")
