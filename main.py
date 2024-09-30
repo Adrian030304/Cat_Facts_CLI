@@ -42,15 +42,22 @@ def user_input():
 
 def main():
     print("Welcome to Cats Facts.\nHere you will get to know random facts about cats.\n")
-    
+    ask = user_input()
     # main loop
     while True:
-        ask = user_input()
-    
         if ask == 'n':
             return "Thank you, have a nice day! "
-        
-print(main()) 
+        elif ask == 'y':
+            try:
+                facts_num = int(input("How many facts do you wish to know (Max: 10)? "))
+                if facts_num > 10:
+                    print("You are not allowed to request too many facts at once")
+                    continue
+            except ValueError:
+                print("Please enter a valid number. ")
+                continue
+            
+print(main())
 # ask = input("Do you wish to learn facts about cats (y/n)? ")
 # # add explanation about facts
 # print("Cat facts are little trivia pieces of information about cats.")
