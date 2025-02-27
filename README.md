@@ -23,3 +23,13 @@ You can install the required package using pip:
 
 ```bash
 pip install requests
+```
+## Installation
+Clone the repository:
+```
+git clone https://github.com/yourusername/cat-facts-cli.git
+```
+## Navigate to the project directory:
+```
+cd cat-facts-cli
+```
